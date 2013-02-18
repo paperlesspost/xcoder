@@ -1,14 +1,12 @@
 require 'nokogiri'
-require 'xcode/configuration_owner'
 
 module Xcode
 
   # Schemes are an XML file that describe build, test, launch and profile actions
   # For the purposes of Xcoder, we want to be able to build and test
   class Scheme
-    include ::Xcode::ConfigurationOwner
-
-    attr_reader :parent, :path, :name, :build_config, :build_targets
+    attr_reader :parent, :path, :name, :build_targets
+    attr_accessor :build_config
 
     #
     # Parse all the schemes given the current project.
