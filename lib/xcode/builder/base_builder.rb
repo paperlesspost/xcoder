@@ -189,6 +189,7 @@ module Xcode
 
       def install_profile
         return nil if @profile.nil?
+        return @profile if @profile.is_a?(ProvisioningProfile)
         # TODO: remove other profiles for the same app?
         p = ProvisioningProfile.new(@profile)
 
