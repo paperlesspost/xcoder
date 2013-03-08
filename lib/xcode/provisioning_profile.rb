@@ -1,6 +1,7 @@
 module Xcode
   class ProvisioningProfile
     attr_reader :path, :name, :uuid, :identifiers, :devices, :appstore
+
     def initialize(path)
       
       raise "Provisioning profile '#{path}' does not exist" unless File.exists? path
@@ -38,7 +39,10 @@ module Xcode
           @identifiers << id.gsub(/<\/string>/,'').strip
         end
       end
-    
+    end
+
+    def to_s
+      path
     end
     
     def appstore?
