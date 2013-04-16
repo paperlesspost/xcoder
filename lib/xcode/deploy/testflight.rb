@@ -43,7 +43,7 @@ module Xcode
         cmd << "-F team_token='#{@team_token}'"
         cmd << "-F notes=\"#{@notes}\"" unless @notes.nil?
         cmd << "-F notify=#{@notify ? 'True' : 'False'}"
-        cmd << "-#"
+        cmd << "-s"
         cmd << "-F distribution_lists='#{@lists.join(',')}'" unless @lists.count==0
 
         response = Xcode::Shell.execute(cmd)
